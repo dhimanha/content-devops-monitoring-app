@@ -1,6 +1,3 @@
-# content-devops-monitoring-app
-Elle's Puppet PPT206 Course - May 2019
-
 Steps in This Video
 List the contents of the forethought directory and subdirectories:
 
