@@ -1,0 +1,14 @@
+Within monitoring there is an age-old battle that puts the debate between Vim versus Emacs to shame: whether or not to use a push- or pull-based monitoring solution. And while Prometheus is a pull-based monitoring system, it's important to know your options before actually implementing your monitoring — after all, this is a course about gathering and using your monitoring data, not a course on Prometheus itself.
+
+Pull-Based Monitoring
+When using a pull system to monitor your environments and applications, we're having the monitoring solution itself query our metrics endpoints, such as the one located at :3000/metrics on our Playground server itself. This is specifically our Grafana metrics, but it looks the same regardless of the endpoint.
+
+Pull-based systems allow us to better check the status of our targets, let us run monitoring from virtually anywhere, and provide us with web endpoints we can check for our metrics. That said, they are not without their concerns: Since a pull-based system is doing the scraping, the metrics might not be as "live" as an event-based push system, and if you have a particularly complicated network setup, then it might be difficult to grant the monitoring solution access to all the endpoints it needs to connect with.
+
+Push-Based Monitoring
+Push-based monitoring solutions offload a lot of the "work" from the monitoring platform to the endpoints themselves: The endpoints are the ones that push their metrics up to the monitoring application. Push systems are especially useful when you need event-based monitoring, and can't wait every 15 or so seconds for the data to be pulled in. They also allow for greater modularity, offloading most of the difficult work to the clients they serve.
+
+That said, many push-based systems have greater setup requirements and overhead than pull-based ones, and the majority of the managing isn't done through only the monitoring server.
+
+Which to Choose
+Despite the debate, one system is not necessarily better than the other, and a lot of it will depend on your individual needs. Not sure which is best for you? I would suggest taking the time to set a system of either type up on a dev environment and note the pain points — because anything causing trouble on a test environment is going to cause bigger problems on production, and those issues will most likely dictate which system works best for you.
